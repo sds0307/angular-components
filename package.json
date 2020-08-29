@@ -1,20 +1,21 @@
 {
   "name": "@sds0307/angular-components",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "npm run build:lib && npm run build:sandbox",
     "build:lib": "ng build angular-components",
+    "build:prod": "npm run build:lib -- --prod",
     "build:sandbox": "ng build sandbox",
     "e2e": "ng e2e",
     "lint": "npm run lint:lib && npm run lint:sandbox",
     "lint:lib": "ng lint angular-components",
     "lint:sandbox": "ng lint sandbox",
+    "publish": "npm run build:prod && cd dist && npm publish --access public",
     "serve:sandbox": "ng serve sandbox",
     "start": "npm run serve:sandbox",
     "test": "npm run test:lib",
     "test:lib": "ng test angular-components --source-map"
   },
-  "private": true,
   "dependencies": {
     "tslib": "^1.9.0"
   },
