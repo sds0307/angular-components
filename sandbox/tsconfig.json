@@ -19,7 +19,7 @@
       "dom"
     ],
     "paths": {
-      "@sds0307/angular-components": ["../projects/angular-components/src/index"]
+      "@sds0307/angular-components": ["../src/index"]
     }
   }
 }
