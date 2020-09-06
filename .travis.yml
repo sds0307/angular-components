@@ -5,5 +5,10 @@ node_js:
 install:
   npm install
 
-script:
-  npm run build
+jobs:
+  include:
+    - name: Run build
+      script: npm run build
+    - name: Create Npm Release on push to master
+      if: (type = push AND branch = master)
+      script: npm run publish

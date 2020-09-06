@@ -1,6 +1,6 @@
 {
   "name": "@sds0307/angular-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "build": "npm run build:lib && npm run build:sandbox",
     "build:lib": "ng build angular-components",
