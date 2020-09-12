@@ -1,15 +1,13 @@
 name: Continuous Integration
 # This workflow is triggered on pushes to the repository.
 on: 
-  push:
-    branches: [master]
   pull_request:
     branches: [master]
 
 jobs:
   build:
     name: Build
-    runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
+    runs-on: ${{ matrix.os }} # runs on Ubuntu, Windows and macOS
     strategy:
       matrix:
         os: [macOS-latest, windows-latest, ubuntu-latest]

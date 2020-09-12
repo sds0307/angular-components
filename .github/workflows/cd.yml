@@ -1,0 +1,45 @@
+name: Continuous Deployment
+# This workflow is triggered on pushes to the repository.
+on: 
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build components
+        run: |
+          echo 'Building components and sandbox'
+          npm run build
+
+      - name: Check if version has been updated
+        id: check
+        uses: EndBug/version-check@v1
+
+      - name: Log when unchanged
+        if: steps.check.outputs.changed != 'true'
+        run: 'echo "No version change. Package will not be published"'
+
+      - name: Publish package to npm
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          echo 'Publishing to npm...'
+          npm run publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
