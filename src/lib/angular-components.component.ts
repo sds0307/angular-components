@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-angular-components',
   template: `
     <p>
-      angular-components works!
+      angular-components works properly!
     </p>
   `,
   styles: []
