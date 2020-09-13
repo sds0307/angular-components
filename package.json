@@ -10,7 +10,6 @@
     "lint": "npm run lint:lib && npm run lint:sandbox",
     "lint:lib": "ng lint angular-components",
     "lint:sandbox": "ng lint sandbox",
-    "publish": "npm run build:prod && cd dist && npm publish --access public",
     "serve:sandbox": "ng serve sandbox",
     "start": "npm run serve:sandbox",
     "test": "npm run test:lib",
