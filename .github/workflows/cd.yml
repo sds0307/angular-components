@@ -21,25 +21,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci
 
       - name: Build components
         run: |
           echo 'Building components and sandbox'
           npm run build
 
-      - name: Check if version has been updated
-        id: check
-        uses: EndBug/version-check@v1
-
-      - name: Log when unchanged
-        if: steps.check.outputs.changed != 'true'
-        run: 'echo "No version change. Package will not be published"'
-
       - name: Publish package to npm
-        if: steps.check.outputs.changed == 'true'
         run: |
           echo 'Publishing to npm...'
-          npm run publish
+          npx semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
