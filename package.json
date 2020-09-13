@@ -1,6 +1,6 @@
 {
   "name": "@sds0307/angular-components",
-  "version": "1.0.3",
+  "version": "0.0.0-development",
   "scripts": {
     "build": "npm run build:lib && npm run build:sandbox",
     "build:lib": "ng build angular-components",
@@ -14,7 +14,8 @@
     "serve:sandbox": "ng serve sandbox",
     "start": "npm run serve:sandbox",
     "test": "npm run test:lib",
-    "test:lib": "ng test angular-components --source-map"
+    "test:lib": "ng test angular-components --source-map",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "tslib": "^1.9.0"
@@ -50,11 +51,14 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "core-js": "^2.5.4",
+    "husky": "^4.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -65,11 +69,21 @@
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
     "rxjs": "~6.3.3",
+    "semantic-release": "^17.1.1",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2",
     "zone.js": "^0.8.29"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sds0307/angular-components.git"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
