@@ -6,8 +6,8 @@ import { SdsProfileCardComponent } from './components/sds-profile-card/sds-profi
 
 @NgModule({
   declarations: [
-      AngularComponentsComponent, 
-      SdsSpinnerComponent, 
+      AngularComponentsComponent,
+      SdsSpinnerComponent,
       SdsProfileCardComponent],
   imports: [
     MatProgressSpinnerModule
