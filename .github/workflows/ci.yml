@@ -36,3 +36,4 @@ jobs:
         run: |
           echo 'Building components and sandbox'
           npm run build
+          npm run lint
