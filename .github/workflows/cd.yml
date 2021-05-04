@@ -32,6 +32,7 @@ jobs:
       - name: Publish package to npm
         run: |
           echo 'Publishing to npm...'
+          cd dist
           npx semantic-release
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
